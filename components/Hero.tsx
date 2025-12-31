@@ -34,11 +34,15 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
                 </button>
                 <div className="flex items-center gap-4 px-6">
                   <div className="flex -space-x-4">
-                    {[1,2,3].map(i => (
-                      <div key={i} className="w-14 h-14 rounded-full border-4 border-white shadow-lg bg-gray-200 overflow-hidden">
-                        <img src={`https://picsum.photos/seed/face${i}/100/100`} alt="user" />
-                      </div>
-                    ))}
+                    <div className="w-14 h-14 rounded-full border-4 border-white shadow-lg bg-gray-200 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100" alt="user" />
+                    </div>
+                    <div className="w-14 h-14 rounded-full border-4 border-white shadow-lg bg-gray-200 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100" alt="user" />
+                    </div>
+                    <div className="w-14 h-14 rounded-full border-4 border-white shadow-lg bg-gray-200 overflow-hidden">
+                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100" alt="user" />
+                    </div>
                   </div>
                   <div>
                     <div className="font-bold text-gray-900">10k+ Anne</div>
@@ -50,8 +54,9 @@ const Hero: React.FC<HeroProps> = ({ onExplore }) => {
             <div className="relative group">
               <div className="absolute inset-0 bg-yellow-200 rounded-[80px] rotate-6 group-hover:rotate-3 transition-transform duration-500"></div>
               <div className="relative rounded-[80px] overflow-hidden shadow-2xl border-8 border-white">
+      
                 <img 
-                  src="https://images.unsplash.com/photo-1544126592-807daa215a15?auto=format&fit=crop&q=80&w=1200" 
+                  src="./assets/images/doruk.jpeg" 
                   alt="Hero Baby" 
                   className="w-full h-full object-cover aspect-[4/5] transform hover:scale-110 transition-transform duration-1000"
                 />

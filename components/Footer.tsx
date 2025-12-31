@@ -1,7 +1,12 @@
 
 import React from 'react';
+import { View } from '../App';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  setView: (view: View) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ setView }) => {
   return (
     <footer className="bg-gray-900 text-white pt-32 pb-12 relative overflow-hidden">
       {/* Wavy top effect using SVG */}
@@ -32,20 +37,20 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-xl font-black text-white mb-8">Kategoriler</h4>
             <ul className="space-y-4 font-bold text-gray-400">
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Mama Sandalyeleri</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Portatif Tuvaletler</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Bebek Yatakları</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Aksesuarlar</a></li>
+              <li><button onClick={() => setView('products')} className="hover:text-yellow-400 transition-colors">Mama Sandalyeleri</button></li>
+              <li><button onClick={() => setView('products')} className="hover:text-yellow-400 transition-colors">Portatif Tuvaletler</button></li>
+              <li><button onClick={() => setView('products')} className="hover:text-yellow-400 transition-colors">Bebek Yatakları</button></li>
+              <li><button onClick={() => setView('products')} className="hover:text-yellow-400 transition-colors">Aksesuarlar</button></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-xl font-black text-white mb-8">Kurumsal</h4>
             <ul className="space-y-4 font-bold text-gray-400">
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Hakkımızda</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">İletişim</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Mağazalarımız</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Kariyer</a></li>
+              <li><button onClick={() => setView('about')} className="hover:text-yellow-400 transition-colors">Hakkımızda</button></li>
+              <li><button onClick={() => setView('contact')} className="hover:text-yellow-400 transition-colors">İletişim</button></li>
+              <li><button onClick={() => setView('stores')} className="hover:text-yellow-400 transition-colors">Mağazalarımız</button></li>
+              <li><button onClick={() => setView('career')} className="hover:text-yellow-400 transition-colors">Kariyer</button></li>
             </ul>
           </div>
 
@@ -65,10 +70,16 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="pt-10 border-t border-white/10 text-center">
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 font-bold text-sm">
             © 2024 ninobaby.com | Her çocuk özeldir.
           </p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm font-bold text-gray-500">
+            <button onClick={() => setView('privacy')} className="hover:text-white transition-colors">Gizlilik</button>
+            <button onClick={() => setView('shipping')} className="hover:text-white transition-colors">Teslimat</button>
+            <button onClick={() => setView('payment')} className="hover:text-white transition-colors">Ödeme</button>
+            <button onClick={() => setView('terms')} className="hover:text-white transition-colors">Şartlar</button>
+          </div>
         </div>
       </div>
     </footer>

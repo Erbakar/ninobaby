@@ -5,11 +5,13 @@ import Hero from './components/Hero';
 import ProductGrid from './components/ProductGrid';
 import Footer from './components/Footer';
 import ProductDetailModal from './components/ProductDetailModal';
+import ProductDetail from './components/ProductDetail';
 import About from './components/About';
 import Contact from './components/Contact';
+import StaticPage from './components/StaticPage';
 import { Product } from './types';
 
-export type View = 'home' | 'products' | 'about' | 'contact';
+export type View = 'home' | 'products' | 'about' | 'contact' | 'privacy' | 'shipping' | 'payment' | 'terms' | 'stores' | 'career' | 'product-detail';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
@@ -22,12 +24,12 @@ const App: React.FC = () => {
 
   const handleOpenProduct = (product: Product) => {
     setSelectedProduct(product);
-    document.body.style.overflow = 'hidden';
+    setCurrentView('product-detail');
+    window.scrollTo(0, 0);
   };
 
   const handleCloseProduct = () => {
-    setSelectedProduct(null);
-    document.body.style.overflow = 'auto';
+    setCurrentView('products');
   };
 
   const renderContent = () => {
@@ -119,6 +121,118 @@ const App: React.FC = () => {
         return <About onShopNow={() => setCurrentView('products')} />;
       case 'contact':
         return <Contact />;
+      case 'privacy':
+        return (
+          <StaticPage 
+            title="Gizlilik Politikası" 
+            content={
+              <div className="space-y-6 text-gray-600">
+                <p>NinoBaby olarak kişisel verilerinizin güvenliği hususuna azami hassasiyet göstermekteyiz. Bu bilinçle, şirketimize ait web sitemizi kullanırken paylaştığınız verilerin 6698 sayılı Kişisel Verilerin Korunması Kanunu'na ("KVKK") uygun olarak işlenmesine ve korunmasına büyük önem veriyoruz.</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Veri Toplama ve Kullanımı</h3>
+                <p>Siparişlerinizi işlemek, size daha iyi bir hizmet sunmak ve kampanyalarımızdan haberdar etmek amacıyla ad, soyad, e-posta ve adres gibi bilgilerinizi topluyoruz. Bu bilgiler, yasal zorunluluklar haricinde üçüncü şahıslarla asla paylaşılmaz.</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Çerezler (Cookies)</h3>
+                <p>Web sitemizdeki deneyiminizi iyileştirmek için çerezler kullanıyoruz. Çerezler, tarayıcınız aracılığıyla cihazınıza yerleştirilen küçük metin dosyalarıdır.</p>
+              </div>
+            } 
+          />
+        );
+      case 'shipping':
+        return (
+          <StaticPage 
+            title="Teslimat Bilgileri" 
+            content={
+              <div className="space-y-6 text-gray-600">
+                <p>Siparişleriniz, onaylandıktan sonra en geç 24 saat içinde kargoya teslim edilmektedir. Hafta sonu ve resmi tatillerde verilen siparişler, takip eden ilk iş gününde işleme alınır.</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Kargo Ücretleri</h3>
+                <p>1500 TL ve üzeri alışverişlerinizde kargo ücretsizdir. Bu tutarın altındaki siparişlerinizde kargo ücreti ödeme sayfasında otomatik olarak hesaplanmaktadır.</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Teslimat Süresi</h3>
+                <p>Kargoya teslim edilen siparişler, bulunduğunuz bölgeye göre genellikle 1-3 iş günü içerisinde adresinize teslim edilmektedir.</p>
+              </div>
+            } 
+          />
+        );
+      case 'payment':
+        return (
+          <StaticPage 
+            title="Ödeme Seçenekleri" 
+            content={
+              <div className="space-y-6 text-gray-600">
+                <p>NinoBaby üzerinden yapacağınız alışverişlerde güvenli ödeme yöntemlerini kullanabilirsiniz.</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Kredi Kartı</h3>
+                <p>Tüm banka ve kredi kartları ile (Visa, MasterCard, Troy) ödemenizi gerçekleştirebilirsiniz. 256-bit SSL sertifikası ile ödeme bilgileriniz şifrelenmektedir.</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Havale / EFT</h3>
+                <p>Ödemenizi banka havalesi veya EFT yoluyla da yapabilirsiniz. Bu yöntemi seçtiğinizde, sipariş onayından sonra banka bilgilerimiz tarafınıza iletilecektir.</p>
+              </div>
+            } 
+          />
+        );
+      case 'terms':
+        return (
+          <StaticPage 
+            title="Kullanım Koşulları" 
+            content={
+              <div className="space-y-6 text-gray-600">
+                <p>Bu web sitesini kullanarak, aşağıda belirtilen kullanım koşullarını kabul etmiş sayılırsınız.</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Fikri Mülkiyet</h3>
+                <p>Sitede yer alan tüm içerik, tasarım, logo ve görseller NinoBaby'e aittir. İzinsiz kopyalanması veya kullanılması yasaktır.</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Hizmet Değişiklikleri</h3>
+                <p>NinoBaby, sitede sunulan hizmetleri ve fiyatları dilediği zaman değiştirme hakkını saklı tutar.</p>
+              </div>
+            } 
+          />
+        );
+      case 'stores':
+        return (
+          <StaticPage 
+            title="Mağazalarımız" 
+            content={
+              <div className="space-y-12">
+                <div className="border-b border-orange-100 pb-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">İstanbul - Beşiktaş (Merkez)</h3>
+                  <p className="text-gray-600">Bebek Mah. Mutluluk Cad. No:42, Beşiktaş</p>
+                  <p className="text-orange-500 font-bold mt-2">0212 555 0101</p>
+                </div>
+                <div className="border-b border-orange-100 pb-8">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Ankara - Çankaya</h3>
+                  <p className="text-gray-600">Tunalı Hilmi Cad. No:123, Çankaya</p>
+                  <p className="text-orange-500 font-bold mt-2">0312 444 0202</p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">İzmir - Karşıyaka</h3>
+                  <p className="text-gray-600">Mavişehir Mah. Sahil Bulvarı No:5, Karşıyaka</p>
+                  <p className="text-orange-500 font-bold mt-2">0232 333 0303</p>
+                </div>
+              </div>
+            } 
+          />
+        );
+      case 'career':
+        return (
+          <StaticPage 
+            title="Kariyer" 
+            content={
+              <div className="space-y-8 text-gray-600">
+                <p>NinoBaby ailesine katılmak ve bebeklerin dünyasını güzelleştiren ekibimizin bir parçası olmak ister misiniz?</p>
+                <h3 className="text-xl font-bold text-gray-900 mt-8">Açık Pozisyonlar</h3>
+                <ul className="list-disc pl-6 space-y-4">
+                  <li>Mağaza Satış Danışmanı (İstanbul)</li>
+                  <li>E-ticaret Operasyon Uzmanı</li>
+                  <li>Müşteri Deneyimi Temsilcisi</li>
+                </ul>
+                <p className="bg-orange-50 p-6 rounded-2xl border border-orange-100 mt-8">
+                  Özgeçmişinizi <strong>ik@ninobaby.com</strong> adresine göndererek genel başvuru yapabilirsiniz.
+                </p>
+              </div>
+            } 
+          />
+        );
+      case 'product-detail':
+        return selectedProduct ? (
+          <ProductDetail 
+            product={selectedProduct} 
+            onClose={handleCloseProduct} 
+          />
+        ) : null;
       default:
         return null;
     }
@@ -147,11 +261,11 @@ const App: React.FC = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer setView={setCurrentView} />
 
-      {selectedProduct && (
+      {/* {selectedProduct && (
         <ProductDetailModal product={selectedProduct} onClose={handleCloseProduct} />
-      )}
+      )} */}
     </div>
   );
 };

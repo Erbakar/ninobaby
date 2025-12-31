@@ -16,8 +16,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
   };
 
   return (
-    <nav className="bg-white/90 backdrop-blur-xl sticky top-4 z-[100] mx-4 lg:mx-auto max-w-7xl rounded-[40px] shadow-lg border border-orange-50 my-4">
-      <div className="px-6 sm:px-10">
+    <nav className="bg-white/90 backdrop-blur-xl sticky top-0 z-[100] border-b border-orange-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex-shrink-0">
             <button 
@@ -72,7 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden absolute top-24 left-0 w-full bg-white rounded-[40px] shadow-2xl p-6 space-y-4 border border-orange-50 animate-in fade-in zoom-in duration-200">
+        <div className="lg:hidden absolute top-20 left-0 w-full bg-white shadow-2xl p-6 space-y-4 border-b border-orange-50 animate-in fade-in zoom-in duration-200">
           <button onClick={() => navigateTo('home')} className="block w-full text-center text-xl font-bold p-4 rounded-3xl hover:bg-orange-50">Ana Sayfa</button>
           <button onClick={() => navigateTo('products')} className="block w-full text-center text-xl font-bold p-4 rounded-3xl hover:bg-orange-50">Ürünler</button>
           <button onClick={() => navigateTo('about')} className="block w-full text-center text-xl font-bold p-4 rounded-3xl hover:bg-orange-50">Hakkımızda</button>
