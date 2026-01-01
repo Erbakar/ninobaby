@@ -1,15 +1,16 @@
-
+/// <reference types="vite/client" />
 import { createClient } from 'contentful';
 
-const spaceId = import.meta.env.VITE_CONTENTFUL_SPACE_ID || 'ng3byrxicrtp';
-const accessToken = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN || 'wBYLV1iSLXTpcStRQIUNARwVSAbUISyL6tJD0Xx85Sw';
+const spaceId = import.meta.env.VITE_CONTENTFUL_SPACE_ID;
+const accessToken = import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN;
 
 if (!spaceId || !accessToken) {
-  console.warn('Contentful credentials missing. Please check your .env file.');
+  throw new Error(
+    'Contentful space ID or access token is missing. Please check your .env file.'
+  );
 }
 
 export const client = createClient({
-  space: spaceId || '',
-  accessToken: accessToken || '',
+  space: spaceId,
+  accessToken: accessToken,
 });
-
