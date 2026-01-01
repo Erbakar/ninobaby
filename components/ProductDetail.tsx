@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import { Product } from '../types';
+import { Product } from '../src/models/Product';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 interface ProductDetailProps {
   product: Product;
@@ -8,13 +8,15 @@ interface ProductDetailProps {
 }
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
-  const [activeImage, setActiveImage] = useState(product.image);
+  const [activeImage, setActiveImage] = useState(product.mainImage);
 
   // Sync active image with product
   useEffect(() => {
-    setActiveImage(product.image);
+    setActiveImage(product.mainImage);
     window.scrollTo(0, 0);
   }, [product]);
+
+  const allImages = [product.mainImage, ...product.gallery].filter(Boolean);
 
   return (
     <div className="bg-[#FFFCF7] min-h-screen pt-10 pb-24">
@@ -36,14 +38,14 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
             <div className="aspect-square bg-white rounded-[40px] overflow-hidden shadow-2xl border-4 border-white">
               <img 
                 src={activeImage} 
-                alt={product.name} 
+                alt={product.productName} 
                 className="w-full h-full object-cover"
               />
             </div>
             
-            {product.images && product.images.length > 1 && (
+            {allImages.length > 1 && (
               <div className="grid grid-cols-4 gap-4">
-                {product.images.map((img, idx) => (
+                {allImages.map((img, idx) => (
                   <button 
                     key={idx}
                     onClick={() => setActiveImage(img)}
@@ -51,7 +53,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
                       activeImage === img ? 'border-orange-500 scale-95' : 'border-white hover:border-orange-200'
                     }`}
                   >
-                    <img src={img} alt={`${product.name} view ${idx + 1}`} className="w-full h-full object-cover" />
+                    <img src={img} alt={`${product.productName} view ${idx + 1}`} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
@@ -67,21 +69,21 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
                 </span>
               )}
               <h1 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-4">
-                {product.name}
+                {product.productName}
               </h1>
               <p className="text-sm font-bold text-orange-500 tracking-widest uppercase mb-4">
-                {product.category}
+                {product.categories.map(c => c.title).join(', ')}
               </p>
               <div className="text-4xl font-black text-gray-900">
-                {product.price}
+                {product.price} {product.currency}
               </div>
             </div>
 
             <div className="bg-white p-8 rounded-[30px] shadow-xl border border-orange-50 space-y-6">
               <h3 className="text-xl font-bold text-gray-900">Ürün Açıklaması</h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                {product.description}
-              </p>
+              <div className="text-gray-600 leading-relaxed text-lg prose max-w-none">
+                {documentToReactComponents(product.description)}
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -129,4 +131,3 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
 };
 
 export default ProductDetail;
-

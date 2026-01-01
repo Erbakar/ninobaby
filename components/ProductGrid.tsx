@@ -1,10 +1,9 @@
-
 import React from 'react';
-import { PRODUCTS } from '../constants';
 import ProductCard from './ProductCard';
-import { Product } from '../types';
+import { Product } from '../src/models/Product';
 
 interface ProductGridProps {
+  products: Product[];
   onSelectProduct: (product: Product) => void;
   title?: string;
   subtitle?: string;
@@ -12,6 +11,7 @@ interface ProductGridProps {
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({ 
+  products,
   onSelectProduct, 
   title = "Ürünlerimiz", 
   subtitle = "Bebeğinizin konforu için özenle seçilmiş ürünlerimize göz atın.",
@@ -42,8 +42,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {PRODUCTS.map(product => (
-            <ProductCard key={product.id} product={product} onSelect={onSelectProduct} />
+          {products.map(product => (
+            <ProductCard key={product.slug} product={product} onSelect={onSelectProduct} />
           ))}
         </div>
 

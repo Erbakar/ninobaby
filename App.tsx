@@ -1,34 +1,34 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProductGrid from './components/ProductGrid';
 import Footer from './components/Footer';
-import ProductDetailModal from './components/ProductDetailModal';
 import ProductDetail from './components/ProductDetail';
 import About from './components/About';
 import Contact from './components/Contact';
 import StaticPage from './components/StaticPage';
-import { Product } from './types';
-import { fetchProductsFromCMS } from './lib/cms';
-import { PRODUCTS as initialProducts } from './constants';
+import { Product } from './src/models/Product';
+import { productService } from './src/services/productService';
 
 export type View = 'home' | 'products' | 'about' | 'contact' | 'privacy' | 'shipping' | 'payment' | 'terms' | 'stores' | 'career' | 'product-detail';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [products, setProducts] = useState<Product[]>(initialProducts);
+  const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadProducts = async () => {
-      setIsLoading(true);
-      const cmsProducts = await fetchProductsFromCMS();
-      if (cmsProducts.length > 0) {
+      try {
+        setIsLoading(true);
+        const cmsProducts = await productService.getAllProducts();
         setProducts(cmsProducts);
+      } catch (error) {
+        console.error('Error loading products from Contentful:', error);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
     loadProducts();
   }, []);
@@ -49,6 +49,14 @@ const App: React.FC = () => {
   };
 
   const renderContent = () => {
+    if (isLoading) {
+      return (
+        <div className="flex justify-center items-center min-h-[60vh]">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-orange-500"></div>
+        </div>
+      );
+    }
+
     switch (currentView) {
       case 'home':
         return (
@@ -128,9 +136,10 @@ const App: React.FC = () => {
               </p>
             </div>
             <ProductGrid 
+              products={products}
               onSelectProduct={handleOpenProduct} 
               title="Tüm Koleksiyon" 
-              subtitle="Toplam 10 ürün listeleniyor"
+              subtitle={`Toplam ${products.length} ürün listeleniyor`}
             />
           </div>
         );
@@ -279,10 +288,6 @@ const App: React.FC = () => {
       </main>
 
       <Footer setView={setCurrentView} />
-
-      {/* {selectedProduct && (
-        <ProductDetailModal product={selectedProduct} onClose={handleCloseProduct} />
-      )} */}
     </div>
   );
 };

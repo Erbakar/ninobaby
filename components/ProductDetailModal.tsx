@@ -1,6 +1,6 @@
-
 import React from 'react';
-import { Product } from '../types';
+import { Product } from '../src/models/Product';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 interface ProductDetailModalProps {
   product: Product;
@@ -31,15 +31,15 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClos
         <div className="lg:w-1/2 p-4 lg:p-8">
           <div className="aspect-square rounded-2xl overflow-hidden bg-gray-50">
             <img 
-              src={product.image} 
-              alt={product.name} 
+              src={product.mainImage} 
+              alt={product.productName} 
               className="w-full h-full object-cover"
             />
           </div>
           <div className="grid grid-cols-4 gap-4 mt-4">
-             {[1,2,3,4].map(i => (
+             {product.gallery.slice(0, 4).map((img, i) => (
                <div key={i} className="aspect-square rounded-lg overflow-hidden border border-gray-100 hover:border-orange-200 cursor-pointer transition-colors">
-                  <img src={product.image} className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" alt="" />
+                  <img src={img} className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity" alt="" />
                </div>
              ))}
           </div>
@@ -49,13 +49,13 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClos
         <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col">
           <div className="mb-2">
             <span className="bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-sm font-bold uppercase tracking-widest">
-              {product.category}
+              {product.categories.map(c => c.title).join(', ')}
             </span>
           </div>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{product.name}</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{product.productName}</h2>
           
           <div className="flex items-center gap-4 mb-6">
-            <span className="text-3xl font-bold text-orange-600">{product.price}</span>
+            <span className="text-3xl font-bold text-orange-600">{product.price} {product.currency}</span>
             <div className="flex text-amber-400">
               {[1,2,3,4,5].map(i => (
                 <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
@@ -66,11 +66,9 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClos
             <span className="text-gray-400 text-sm">(124 Değerlendirme)</span>
           </div>
 
-          <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            {product.description} Bebeğinizin güvenliği için özel olarak tasarlanan bu ürün, 
-            yüksek kaliteli malzemeler kullanılarak üretilmiştir. Ergonomik yapısı sayesinde 
-            hem sizin hem de bebeğinizin konforunu en üst düzeye çıkarır. 
-          </p>
+          <div className="text-gray-600 text-lg leading-relaxed mb-8 prose prose-sm max-w-none">
+            {documentToReactComponents(product.description)}
+          </div>
 
           <div className="space-y-4 mb-8">
             <div className="flex items-center gap-3 text-sm text-gray-600">
