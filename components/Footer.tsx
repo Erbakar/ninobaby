@@ -7,6 +7,8 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ setView }) => {
+  const logoUrl = './assets/images/logo.png'; // Public klasöründen referans alıyoruz
+
   return (
     <footer className="bg-gray-900 text-white pt-32 pb-12 relative overflow-hidden">
       {/* Wavy top effect using SVG */}
@@ -19,9 +21,17 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
-            <span className="text-4xl font-black tracking-tighter text-yellow-400">
-              ninobaby
-            </span>
+            <div className="h-14 flex items-center">
+              <img 
+                src={logoUrl} 
+                alt="ninobaby logo" 
+                className="h-full w-auto object-contain brightness-0 invert" 
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.parentElement!.innerHTML = '<span class="text-3xl font-black tracking-tighter text-yellow-400">ninobaby</span>';
+                }}
+              />
+            </div>
             <p className="text-gray-400 leading-relaxed font-medium">
               Sevgiyle tasarlanan, güvenle büyüten modern bebek dünyasının yeni adresi. Bizimle her an daha renkli.
             </p>
@@ -72,7 +82,7 @@ const Footer: React.FC<FooterProps> = ({ setView }) => {
         
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 font-bold text-sm">
-            © 2024 ninobaby.com | Her çocuk özeldir.
+            © 2026 ninobaby.com | Her çocuk özeldir.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm font-bold text-gray-500">
             <button onClick={() => setView('privacy')} className="hover:text-white transition-colors">Gizlilik</button>

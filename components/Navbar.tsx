@@ -9,6 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const logoUrl = './assets/images/logo.jpeg'; // Public klasöründen referans alıyoruz
 
   const navigateTo = (view: View) => {
     setView(view);
@@ -22,9 +23,18 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
           <div className="flex-shrink-0">
             <button 
               onClick={() => navigateTo('home')}
-              className="text-3xl font-extrabold tracking-tighter bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent"
+              className="flex items-center"
             >
-              ninobaby
+              <img 
+                src={logoUrl} 
+                alt="ninobaby logo" 
+                className="h-12 w-auto object-contain"
+                onError={(e) => {
+                  // Logo bulunamazsa metin logo göster
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.parentElement!.innerHTML = '<span class="text-3xl font-extrabold tracking-tighter bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">ninobaby</span>';
+                }}
+              />
             </button>
           </div>
           

@@ -10,12 +10,28 @@ import About from './components/About';
 import Contact from './components/Contact';
 import StaticPage from './components/StaticPage';
 import { Product } from './types';
+import { fetchProductsFromCMS } from './lib/cms';
+import { PRODUCTS as initialProducts } from './constants';
 
 export type View = 'home' | 'products' | 'about' | 'contact' | 'privacy' | 'shipping' | 'payment' | 'terms' | 'stores' | 'career' | 'product-detail';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [products, setProducts] = useState<Product[]>(initialProducts);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      setIsLoading(true);
+      const cmsProducts = await fetchProductsFromCMS();
+      if (cmsProducts.length > 0) {
+        setProducts(cmsProducts);
+      }
+      setIsLoading(false);
+    };
+    loadProducts();
+  }, []);
 
   // Scroll to top on view change
   useEffect(() => {
@@ -75,6 +91,7 @@ const App: React.FC = () => {
             </section>
 
             <ProductGrid 
+              products={products.slice(0, 4)}
               onSelectProduct={handleOpenProduct} 
               title="Günün Fırsatları" 
               subtitle="En çok tercih edilen ürünlerimize göz atın."

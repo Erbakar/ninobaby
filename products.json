@@ -4,10 +4,10 @@
       "name": "E4 Automatic Wooden Cradle",
       "category": "Otomatik Beşik",
       "price": "1,500 TL",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/07/E100-FOOTER-1-min-300x300.jpg.webp",
+      "image": "https://placehold.co/600x600?text=Automatic+Baby+Cradle",
       "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/07/E100-FOOTER-1-min-300x300.jpg.webp",
-        "https://autoruhomebaby.com/wp-content/uploads/2024/07/E100-FOOTER-2-min-600x600.jpg.webp"
+        "https://placehold.co/600x600?text=Automatic+Baby+Cradle",
+        "https://placehold.co/600x600?text=Wooden+Baby+Crib"
       ],
       "description": "Premium otomatik ahşap beşik, bebeğiniz için huzurlu uyku ortamı sağlar.",
       "badge": "Premium"
@@ -17,9 +17,9 @@
       "name": "F1 Rocking Chair",
       "category": "Sallanan Koltuk",
       "price": "$95.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/F1-Rocking-Chair.jpg",
+      "image": "https://placehold.co/600x600?text=Baby+Rocking+Chair",
       "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/F1-Rocking-Chair.jpg"
+        "https://placehold.co/600x600?text=Baby+Rocking+Chair"
       ],
       "description": "Konforlu sallanan sandalye ile dinlenme keyfini artırın."
     },
@@ -28,31 +28,20 @@
       "name": "Elephant Plastic Walker – With Music",
       "category": "Yürüteç",
       "price": "$48.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Elephant-Walker.jpg",
+      "image": "https://placehold.co/600x600?text=Baby+Walker",
       "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Elephant-Walker.jpg"
+        "https://placehold.co/600x600?text=Baby+Walker"
       ],
       "description": "Müzikli fil yürüteç, eğlenceli yürümeyi destekler."
     },
     {
-      "id": 4,
-      "name": "Rabbit Plastic Walker – With Music",
-      "category": "Yürüteç",
-      "price": "$48.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Rabbit-Walker.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Rabbit-Walker.jpg"
-      ],
-      "description": "Müzikli tavşan yürüteç, güvenli ve eğlenceli yürüyüş sağlar."
-    },
-    {
       "id": 5,
-      "name": "Baby Feeding Chair with Canopy F2 PRO – 4 Springs",
+      "name": "Baby Feeding Chair with Canopy F2 PRO",
       "category": "Beslenme Koltuğu",
       "price": "$71.40",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/F2-PRO-Feeding-Chair.jpg",
+      "image": "https://placehold.co/600x600?text=Baby+High+Chair",
       "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/F2-PRO-Feeding-Chair.jpg"
+        "https://placehold.co/600x600?text=Baby+High+Chair"
       ],
       "description": "Gölgelikli ve güvenli yapısı ile beslenme saatlerini kolaylaştırır.",
       "badge": "Popüler"
@@ -62,98 +51,20 @@
       "name": "Portable Baby Bed for Nap",
       "category": "Bebek Yatağı",
       "price": "$60.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Portable-Baby-Bed.jpg",
+      "image": "https://placehold.co/600x600?text=Portable+Baby+Bed",
       "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Portable-Baby-Bed.jpg"
+        "https://placehold.co/600x600?text=Portable+Baby+Bed"
       ],
       "description": "Taşınabilir bebek yatağı, seyahatlerde konfor sağlar."
-    },
-    {
-      "id": 7,
-      "name": "Mattress – Pillow set for Multifunctional fabric crib & bed C5",
-      "category": "Yatak Seti",
-      "price": "$22.90",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/C5-Mattress-Pillow-Set.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/C5-Mattress-Pillow-Set.jpg"
-      ],
-      "description": "C5 uyku seti, ekstra konfor sunar."
-    },
-    {
-      "id": 8,
-      "name": "Combo of Baby Portable Hammock Stand A3 + Hammock Net",
-      "category": "Hamak",
-      "price": "$52.65",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/A3-Hammock-Stand.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/A3-Hammock-Stand.jpg"
-      ],
-      "description": "Taşınabilir hamak seti + sineklikli hamak filesi.",
-      "badge": "Yeni"
-    },
-    {
-      "id": 9,
-      "name": "Automatic Hammock Rocking Machine E100",
-      "category": "Aksesuar",
-      "price": "$43.80",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/E100-Hammock-Machine.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/E100-Hammock-Machine.jpg"
-      ],
-      "description": "Sessiz ve güçlü otomatik hamak sallama makinesi."
-    },
-    {
-      "id": 10,
-      "name": "Automatic Cradle Z2",
-      "category": "Otomatik Beşik",
-      "price": "$129.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Z2-Cradle.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Z2-Cradle.jpg"
-      ],
-      "description": "Akıllı sallanma modları ile kaliteli uyku."
-    },
-    {
-      "id": 11,
-      "name": "Automatic Cradle Z1",
-      "category": "Otomatik Beşik",
-      "price": "$95.40",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Z1-Cradle.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Z1-Cradle.jpg"
-      ],
-      "description": "Kompakt otomatik sallanan beşik."
-    },
-    {
-      "id": 12,
-      "name": "Baby 2-in-1 automatic wooden cradle & crib Z5",
-      "category": "Ahşap Mobilya",
-      "price": "$201.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Z5-2in1.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Z5-2in1.jpg"
-      ],
-      "description": "Beşik ve karyola olarak kullanılabilen 2’si 1 arada ürün."
-    },
-    {
-      "id": 13,
-      "name": "Motorcycle belt for children",
-      "category": "Güvenlik",
-      "price": "$25.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Motorcycle-Belt.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Motorcycle-Belt.jpg"
-      ],
-      "description": "Çocuklar için motosiklet emniyet kemeri."
     },
     {
       "id": 14,
       "name": "Baby Bath Net Frame",
       "category": "Banyo",
       "price": "$15.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Baby-Bath-Net-Frame.jpg",
+      "image": "https://placehold.co/600x600?text=Baby+Bath+Accessory",
       "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Baby-Bath-Net-Frame.jpg"
+        "https://placehold.co/600x600?text=Baby+Bath+Accessory"
       ],
       "description": "Banyo filesi çerçevesi."
     },
@@ -162,65 +73,10 @@
       "name": "Baby Bath with Drain Valve",
       "category": "Banyo",
       "price": "$30.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Baby-Bath-Drain.jpg",
+      "image": "https://placehold.co/600x600?text=Baby+Bath+Tub",
       "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Baby-Bath-Drain.jpg"
+        "https://placehold.co/600x600?text=Baby+Bath+Tub"
       ],
       "description": "Tahliye vanalı bebek banyosu."
-    },
-    {
-      "id": 16,
-      "name": "Automatic Baby Hammock V1",
-      "category": "Otomatik Hamak",
-      "price": "$89.40",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/V1-Hammock.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/V1-Hammock.jpg"
-      ],
-      "description": "Yumuşak otomatik hamak sallanma sistemi."
-    },
-    {
-      "id": 17,
-      "name": "Baby bouncing chair with canopy F3 – 2 springs",
-      "category": "Zıplama Koltuğu",
-      "price": "$53.40",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/F3-Bouncing-Chair.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/F3-Bouncing-Chair.jpg"
-      ],
-      "description": "Gölgeli ve güvenli zıplama koltuğu."
-    },
-    {
-      "id": 18,
-      "name": "Wooden High Chair H1",
-      "category": "Mama Sandalyesi",
-      "price": "$87.00",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/H1-High-Chair.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/H1-High-Chair.jpg"
-      ],
-      "description": "Ahşap mama sandalyesi."
-    },
-    {
-      "id": 19,
-      "name": "Automatic hammock rocking machine a100",
-      "category": "Aksesuar",
-      "price": "$47.40",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/A100-Hammock-Machine.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/A100-Hammock-Machine.jpg"
-      ],
-      "description": "Otomatik hamak sallama makinesi."
-    },
-    {
-      "id": 20,
-      "name": "Automatic Cradle Z-Basic",
-      "category": "Otomatik Beşik",
-      "price": "$83.40",
-      "image": "https://autoruhomebaby.com/wp-content/uploads/2024/09/Z-Basic-Cradle.jpg",
-      "images": [
-        "https://autoruhomebaby.com/wp-content/uploads/2024/09/Z-Basic-Cradle.jpg"
-      ],
-      "description": "Temel otomatik beşik modeli."
     }
   ]
